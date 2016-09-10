@@ -8,7 +8,7 @@
 
 // our controller for the form
 // =============================================================================
-myApp.controller('HomeController', function($scope, $http) {
+myApp.controller('HomeController', function($scope, $http, $sce, SharedDataService) {
 /*
     // we will store all of our form data in this object
     $scope.formData = {};
@@ -122,20 +122,55 @@ myApp.controller('HomeController', function($scope, $http) {
 
     vm.save = function() {
 
-        $http.get("http://www.google.com")
+        /*$http.get("http://www.google.com")
             .then(function(response) {
                 //First function handles success
                 $scope.content = response.data;
             }, function(response) {
                 //Second function handles error
                 $scope.content = "Something went wrong";
-            });
+            });*/
 
-        /*alert(
-            "Saving form... \n\n" +
-            "Name: " + vm.user.name + "\n" +
-            "Email: " + vm.user.email + "\n" +
-            "Age: " + vm.user.age);*/
+        SharedDataService['blogs'] = [
+            {
+                imageSrc: 'https://cdn-images-1.medium.com/max/800/1*rsnkdN9SNpMPOJ3bMUu0qA.jpeg',
+                url: 'https://readthink.com/12-mindfulness-hacks-that-will-kill-your-stress-2bcda9376bb6#.ge3hx8ffe',
+                description:'12 Mindfulness Hacks That Will Kill Your Stress'
+            },
+            {
+                imageSrc: 'https://cdn-images-1.medium.com/max/800/1*rsnkdN9SNpMPOJ3bMUu0qA.jpeg',
+                url: 'https://readthink.com/12-mindfulness-hacks-that-will-kill-your-stress-2bcda9376bb6#.ge3hx8ffe',
+                description:'12 Mindfulness Hacks That Will Kill Your Stress'
+            }
+        ]
+
+        SharedDataService['videos'] = [
+            {
+                url: $sce.trustAsResourceUrl('//www.youtube.com/embed/3I7qR4NO8Ag')
+            },
+            {
+                url: $sce.trustAsResourceUrl('//www.youtube.com/embed/kYX87kkyubk')
+            }
+         ]
+
+        SharedDataService['quotes'] = [
+
+            {
+                content:"In times of stress, the best thing we can do for each other is to listen with our ears and our hearts and to be assured that our questions are just as important as our answers."
+                ,
+                author: 'Fred "Mister" Rogers'
+
+            },
+            {
+                content: "Getting better from depression demands a lifelong commitment. I've made that commitment for my life's sake and for the sake of those who love me.",
+                author: "Susan Polis Schutz"
+
+            }
+
+        ]
+
+        location.href = '#/results';
+
     }
 
 

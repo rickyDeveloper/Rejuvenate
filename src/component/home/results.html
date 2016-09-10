@@ -7,13 +7,11 @@
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse-01">
         <a class="navbar-brand" href="#">
-            <!--<b>Rejuvenate</b>-->
-            <!--<img src="src/img/rejuvenate.jpeg"/>
-            --><img src="src/img/rejuvenate.jpeg" class="img-rounded" alt="Cinque Terre" width="250" height="40">
+            <img src="src/img/rejuvenate.jpeg" class="img-rounded" alt="Cinque Terre" width="250" height="40">
         </a>
         <div class="collapse navbar-collapse" id="navbar-collapse-01">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/login">Login</a></li>
+                <li><a href="#/main">Logout</a></li>
             </ul>
         </div>
     </div><!-- /.navbar-collapse -->
@@ -21,29 +19,21 @@
 
 
 <div >
-    <h3 align="center"><mark class="bg-success">Stressed</mark></h3>
+    <h3 align="center"><mark class="bg-success">Suggested Content</mark></h3>
 
     <div class="row">
 
         <div class="col-xs-12 col-md-4">
-           <!-- <a href="#" class="thumbnail"> &lt;!&ndash; class thumbnail , no 1 &ndash;&gt;
-                <img src="src/img/SaveLife.jpg" alt="truck thumbnail">
-            </a>-->
-           <!-- <p class="text-primary">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis est eget tristique vestibulum. Fusce et pulvinar erat, id viverra sem. Vivamus porttitor, sapien nec mattis fermentum, sem augue ornare erat, vitae interdum ante sapien id libero. Vestibulum luctus augue pretium purus posuere.
-            </p>-->
-
-
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h4 class="text-center">Quotes</h4>
                 </div>
                 <div class="panel-body fixed-panel" >
                     <blockquote>
-                     <p>
-                         "In times of stress, the best thing we can do for each other is to listen with our ears and our hearts and to be assured that our questions are just as important as our answers."
-                       </p>
-                                              <footer>Fred "Mister" Rogers</footer>
+                        <p>
+                            {{ data['quotes'][1].content }}
+                        </p>
+                        <footer>{{ data['quotes'][1].author }} </footer>
                     </blockquote>
 
                 </div>
@@ -52,20 +42,16 @@
         </div>
 
         <div class="col-xs-12 col-md-4">
-          <!--  <a href="#" class="thumbnail"> &lt;!&ndash; class thumbnail , no 2 &ndash;&gt;
-                <img src="src/img/SaveLife.jpg" alt="paris thumbnail">
-            </a>
--->
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h4 class="text-center">Blog</h4>
                 </div>
                 <div class="panel-body fixed-panel">
                     <div class="thumbnail">
-                        <img src="https://cdn-images-1.medium.com/max/800/1*rsnkdN9SNpMPOJ3bMUu0qA.jpeg" alt="Reducce Stress">
+                        <img ng-src="{{data['blogs'][1].imageSrc }}" alt="Reducce Stress">
                         <div class="caption">
-                            <p>12 Mindfulness Hacks That Will Kill Your Stress</p>
-                            <p><a href="https://readthink.com/12-mindfulness-hacks-that-will-kill-your-stress-2bcda9376bb6#.ge3hx8ffe" class="btn btn-primary center-block" role="button">Read Blog</a></p>
+                            <p>{{ data['blogs'][1].description }}</p>
+                            <p><a ng-href="{{ data['videos'][1]['url'] }}" class="btn btn-primary center-block" role="button">Read Blog</a></p>
                         </div>
                     </div>
 
@@ -87,39 +73,19 @@
                 <div class="panel-body fixed-panel">
 
                     <div class="embed-responsive embed-responsive-4by3">
-                        <iframe src="//www.youtube.com/embed/3I7qR4NO8Ag" frameborder="0" allowfullscreen></iframe>
+                        <iframe ng-src="{{ data['videos'][1].url }}" frameborder="0" allowfullscreen></iframe>
                     </div>
 
-                    <!--<div class="embed-responsive embed-responsive-4by3">
-                        <iframe class="embed-responsive-item" src="//www.youtube.com/watch?v=3I7qR4NO8Ag"></iframe>
-                    </div>-->
-<!--
-                    <div align="center" class="embed-responsive embed-responsive-16by9">
-                        <video  loop class="embed-responsive-item">
-                            <source src="//www.youtube.com/watch?v=3I7qR4NO8Ag" type="video/mp4">
-                        </video>
-                    </div>
-
-                    <div class="yt-container">
-                        <iframe src="//www.youtube.com/watch?v=3I7qR4NO8Ag" frameborder="0" allowfullscreen></iframe>
-                    </div>-->
                 </div>
             </div>
         </div>
 
-        <!--<div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">&lt;!&ndash; class thumbnail , no 4 &ndash;&gt;
-                <img src="src/img/SaveLife.jpg" alt="bike thumbnail">
-            </a>
-        </div>-->
 
     </div>
 
 </div>
 
 <div >
-
-    <h3 align="center"><mark class="bg-success">Depressed</mark></h3>
 
 
     <div class="row">
@@ -133,9 +99,9 @@
                 <div class="panel-body fixed-panel" >
                     <blockquote>
                         <p>
-                            "Getting better from depression demands a lifelong commitment. I've made that commitment for my life's sake and for the sake of those who love me."
+                            {{ data['quotes'][0].content }}
                         </p>
-                        <footer>Susan Polis Schutz</footer>
+                        <footer>{{ data['quotes'][0].author }}</footer>
                     </blockquote>
                 </div>
             </div>
@@ -150,11 +116,12 @@
                 </div>
                 <div class="panel-body fixed-panel">
                     <div class="thumbnail">
-                        <img src="https://cdn-images-1.medium.com/max/600/1*NQyvR5CxWGxK-spLHHUK9w.jpeg" alt="Reducce Depression">
+                        <img ng-src="{{data['blogs'][0].imageSrc }}" alt="Reducce Depression">
                         <div class="caption">
-                            <p>How 30 Days of Yoga Prevents Depression, Inspires Progression</p>
-                            <p><a href="https://byrslf.co/how-30-days-of-yoga-prevents-depression-inspires-progression-80988068ef94#.93en2r2bp" class="btn btn-primary center-block" role="button">Read Blog</a></p>
+                            <p>{{ data['blogs'][0].description }}</p>
+                            <p><a ng-href="{{ data['videos'][0]['url'] }}" class="btn btn-primary center-block" role="button">Read Blog</a></p>
                         </div>
+
                     </div>
 
                 </div>
@@ -172,7 +139,7 @@
                 <div class="panel-body fixed-panel">
 
                     <div class="embed-responsive embed-responsive-4by3">
-                        <iframe src="//www.youtube.com/embed/kYX87kkyubk" frameborder="0" allowfullscreen></iframe>
+                        <iframe ng-src="{{ data['videos'][0].url }}" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>

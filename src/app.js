@@ -80,6 +80,10 @@ myApp.config(['$routeProvider',
                 controller: 'HomeController',
                 templateUrl: 'src/component/home/home.html'
         }).
+        when('/results', {
+            controller: 'ResultsController',
+            templateUrl: 'src/component/home/results.html'
+        }).
         otherwise({
             redirectTo: '/'
         });
