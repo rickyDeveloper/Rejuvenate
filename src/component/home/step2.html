@@ -1,0 +1,43 @@
+<!--<h2>Step1 content</h2>-->
+<br/>
+<br/>
+<div class="form-group">
+    <!--<label>Email</label>
+    <input type="email" class="form-control" name="email" ng-model="vm.user.email" required />
+    -->
+<!--
+
+   <div ng-repeat="whyOption in  vm.user.mood.whyOptions">
+       <div class="checkbox">
+           <label><input type="checkbox" ng-model="vm.user.mood.depressed" value="depressed">Depressed</label>
+       </div>
+   </div>
+
+-->
+
+    <div ng-repeat="whyOption in  vm.user.mood.whyOptions">
+        <input
+            type="checkbox"
+            name="selectedOptions[]"
+            value="{{whyOption}}"
+            ng-checked="selection.indexOf(whyOption) > -1"
+            ng-click="toggleSelection(whyOption)"
+        > {{whyOption}}
+    </div>
+
+
+
+   <!-- <div class="checkbox">
+        <label><input type="checkbox" ng-model="vm.user.mood.depressed" value="depressed">Depressed</label>
+    </div>
+    <br/>
+
+    <div class="checkbox">
+        <label><input type="checkbox" ng-model="vm.user.mood.stressed"  value="stressed">Stressed</label>
+    </div>
+    <br/>
+
+    <div class="checkbox disabled">
+        <label><input type="checkbox" ng-model="vm.user.mood.other" value="other" disabled>Other mood</label>
+    </div>-->
+</div>

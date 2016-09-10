@@ -1,0 +1,102 @@
+<nav class="navbar navbar-light" style="background-color: #ABB2B9;" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+            <span class="sr-only">Toggle navigation</span>
+        </button>
+        <a class="navbar-brand" href="#"><span class="fui-flat"></span></a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse-01">
+        <a class="navbar-brand" href="#">
+            <!--<b>Rejuvenate</b>-->
+            <!--<img src="src/img/rejuvenate.jpeg"/>
+            --><img src="src/img/rejuvenate.jpeg" class="img-rounded" alt="Cinque Terre" width="250" height="40">
+        </a>
+        <div class="collapse navbar-collapse" id="navbar-collapse-01">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/main">Logout</a></li>
+            </ul>
+        </div>
+    </div><!-- /.navbar-collapse -->
+</nav><!-- /navbar -->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <h3 class="text-center"><mark class="bg-success">How are you feeling today ?</mark></h3>
+            <div id="wizard-container" ng-controller="HomeController as vm">
+
+                <div id="wizard-step-container">
+                    <ul class="nav nav-pills nav-justified">
+                        <li ng-repeat="step in vm.steps" ng-class="{'active':step.step == vm.currentStep}"><a ng-click="vm.gotoStep(step.step)" href="">{{step.step}}. {{step.name}}</a></li>
+                    </ul>
+                </div>
+
+                <div id="wizard-content-container">
+                    <ng-include src="vm.getStepTemplate()"></ng-include>
+                </div>
+
+                <br/>
+                <br/>
+
+                <div id="wizard-navigation-container">
+                    <div class="pull-left">
+                <span class="btn-group">
+                  <button ng-disabled="vm.currentStep <= 1" class="btn btn-default" name="previous" type="button" ng-click="vm.gotoStep(vm.currentStep - 1)"><i class="fa fa-arrow-left"></i> Previous step</button>
+                  <button ng-disabled="vm.currentStep >= vm.steps.length" class="btn btn-primary" name="next" type="button" ng-click="vm.gotoStep(vm.currentStep + 1)">Next step <i class="fa fa-arrow-right"></i></button>
+                </span>
+                        <button ng-disabled="vm.currentStep != vm.steps.length" class="btn btn-success" name="next" type="button" ng-click="vm.save()"> <i class="fa fa-floppy-o"></i> Search</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--<div class="row" ng-controller="HomeController as vm">
+    <div class="col-sm-8 col-sm-offset-2">
+
+        <div id="form-container">
+
+        &lt;!&ndash;    <div class="page-header text-center">
+                <h2>Let's Be Friends</h2>
+
+                &lt;!&ndash; the links to our nested states using relative paths &ndash;&gt;
+                &lt;!&ndash; add the active class if the state matches our ui-sref &ndash;&gt;
+                <div id="status-buttons" class="text-center">
+                    <a ui-sref-active="active" ui-sref="home.personal"><span>1</span> Profile</a>
+                    <a ui-sref-active="active" ui-sref="home.interests"><span>2</span> Interests</a>
+                    <a ui-sref-active="active" ui-sref="home.payment"><span>3</span> Payment</a>
+                </div>
+            </div>
+&ndash;&gt;
+
+            <div id="wizard-content-container">
+                <ng-include src="vm.getStepTemplate()"></ng-include>
+            </div>
+
+            <div id="wizard-navigation-container">
+                <div class="pull-right">
+              <span class="btn-group">
+                  <button ng-disabled="vm.currentStep <= 1" class="btn btn-default" name="previous" type="button" ng-click="vm.gotoStep(vm.currentStep - 1)"><i class="fa fa-arrow-left"></i> Previous step</button>
+                  <button ng-disabled="vm.currentStep >= vm.steps.length" class="btn btn-primary" name="next" type="button" ng-click="vm.gotoStep(vm.currentStep + 1)">Next step <i class="fa fa-arrow-right"></i></button>
+                </span>
+                    <button ng-disabled="vm.currentStep != vm.steps.length" class="btn btn-success" name="next" type="button" ng-click="vm.save()"> <i class="fa fa-floppy-o"></i> Save</button>
+                </div>
+            </div>
+
+            &lt;!&ndash; use ng-submit to catch the form submission and use our Angular function &ndash;&gt;
+            <form id="signup-form" ng-submit="processForm()">
+                &lt;!&ndash; our nested state views will be injected here &ndash;&gt;
+                <div id="form-views" ui-view></div>
+            </form>
+
+        </div>
+
+    </div>
+</div>-->
+
+
