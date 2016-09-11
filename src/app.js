@@ -8,7 +8,7 @@ var myApp = angular.module('myApp',['ngRoute','ngAnimate', 'ui.router']);
 /**
  * Created by vikasnaiyar on 10/09/16.
  */
-var myApp = angular.module('myApp',['ngRoute','ngAnimate', 'ui.router']);
+var myApp = angular.module('myApp',['ngRoute','ngAnimate', 'ui.router', 'ngStorage']);
 
 /*myApp.config(['$routeProvider','$stateProvider', '$urlRouterProvider',
     function($routeProvider, $stateProvider, $urlRouterProvider) {

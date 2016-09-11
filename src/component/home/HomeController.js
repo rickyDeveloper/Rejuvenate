@@ -8,7 +8,7 @@
 
 // our controller for the form
 // =============================================================================
-myApp.controller('HomeController', function($scope, $http, $sce, SharedDataService) {
+myApp.controller('HomeController', function($scope, $http, $sce, $localStorage, SharedDataService) {
 
     /*
     // we will store all of our form data in this object
@@ -21,20 +21,20 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
 
 
     $scope.init = function () {
-     /*   $http({
+      $http({
             method: 'GET',
-            url: '/nodes/root'
+            url: 'http://54.210.170.189:9000/nodes/children/1'
         }).then(function successCallback(response) {
             // this callback will be called asynchronously
             // when the response is available
-            $scope.moods = response
+            $scope.moods = response.data
         }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
-        });*/
+        });
 
 
-        $scope.moods = [
+        /*$scope.moods = [
 
             {
                 "id":1,
@@ -50,7 +50,7 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
 
             }
 
-        ]
+        ]*/
 
     }
 
@@ -104,17 +104,18 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
             vm.user.whyOptions = []
             $scope.selection = []
 
-           /* $http({
+            $http({
                 method: 'GET',
-                url: '/nodes/children/'+vm.user.mood
+                //url: '/nodes/children/'+vm.user.mood
+                url: 'http://54.210.170.189:9000/nodes/children/'+vm.user.mood
             }).then(function successCallback(response) {
                 // this callback will be called asynchronously
                 // when the response is available
-                $scope.moods = response
+                vm.user.whyOptions = response.data
             }, function errorCallback(response) {
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
-            });*/
+            });
 
 
             /*$scope.stressed = ['Angry', 'Sad'],
@@ -123,7 +124,7 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
 
             */
 
-            vm.user.whyOptions = [
+            /*vm.user.whyOptions = [
                 {
                     "id":3,
                     "feeling" : 'Relation Ship',
@@ -144,30 +145,31 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
                     "isLeaf":false
 
                 }
-            ]
+            ]*/
 
         } else if (vm.currentStep == 2) {
             // Reason selection
             //$scope.reasonSelections = []
             //$scope.reasonSelections = []
             $scope.reasonPersons = []
-/*
+
 
             $http({
              method: 'GET',
-             url: '/nodes/children/'+vm.user.whyOptionSelection
+            // url: '/nodes/children/'+vm.user.whyOptionSelection
+                url: 'http://54.210.170.189:9000/nodes/children/'+vm.user.whyOptionSelection
              }).then(function successCallback(response) {
              // this callback will be called asynchronously
              // when the response is available
-             $scope.moods = response
+                $scope.reasonSelections = response.data
              }, function errorCallback(response) {
              // called asynchronously if an error occurs
              // or server returns response with an error status.
              });
-*/
 
 
 
+            /*
             $scope.reasonSelections = [
                 {
                     "id":6,
@@ -192,7 +194,7 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
             ]
 
 
-            /*
+
             for(var item in $scope.selection) {
                 if($scope.selection[item] == 'Relation Ship') {
                     $scope.reasonSelections.push('Spouse');
@@ -220,18 +222,29 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
 
     vm.save = function() {
 
-        /*$http({
+       // $scope.progress= []
+       // SharedDataService = $scope.progress
+
+        $http({
             method: 'GET',
-            url: '/content/' + vm.user.reasonSelection
+            //url: '/content/' + vm.user.reasonSelection
+            url: 'http://54.210.170.189:9000/content/'+vm.user.reasonSelection
         }).then(function successCallback(response) {
             // this callback will be called asynchronously
             // when the response is available
-            $scope.moods = response
+           // $scope.moods = response
+
+           // $scope.progress = response.data;
+           // $scope.$apply();
+            //SharedDataService = response.data;
+            $localStorage.data = response.data;
+            location.href = '#/results';
+
         }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
-        });*/
-
+        });
+/*
         SharedDataService['blogs'] = [
 
             {
@@ -281,9 +294,7 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
                 totalViews: 90423
             }
 
-        ]
-
-        location.href = '#/results';
+        ]*/
 
     }
 

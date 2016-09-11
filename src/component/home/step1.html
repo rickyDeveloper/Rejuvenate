@@ -7,7 +7,7 @@
 
     <div ng-repeat="mood in moods">
         <div class="radio">
-            <label><input name="radioGroup" type="radio" ng-model="vm.user.mood" value="{{mood.id}}">{{mood.feeling}}</label>
+            <label><input name="radioGroup" type="radio" ng-model="vm.user.mood" value="{{mood.id}}">{{mood.feeling | uppercase}}</label>
         </div>
     </div>
 

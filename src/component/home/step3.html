@@ -35,7 +35,7 @@
             name="reasonSelectionOptions[]"
             value="{{reasonSelection.id}}"
             ng-model="vm.user.reasonSelection"
-        > {{reasonSelection.feeling}}
+        > {{reasonSelection.feeling| uppercase}}
     </div>
 
    <!-- <div ng-repeat="reasonSelections in vm.user.reasonSelections">
