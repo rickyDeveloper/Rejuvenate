@@ -7,7 +7,7 @@
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse-01">
         <a class="navbar-brand" href="#">
-            <img src="src/img/rejuvenate.jpeg" class="img-rounded" alt="Cinque Terre" width="250" height="40">
+            <img src="src/img/rejuvenate_latest.png" class="img-rounded">
         </a>
         <div class="collapse navbar-collapse" id="navbar-collapse-01">
             <ul class="nav navbar-nav navbar-right">
@@ -36,6 +36,19 @@
                         <footer>{{ data['quotes'][1].author }} </footer>
                     </blockquote>
 
+                    <div id='toolbar'>
+                        <div class='wrapper text-center'>
+
+                            <div class="btn-group">
+                                <button class="btn">
+                                    <a class="btn btn-default glyphicon glyphicon-thumbs-up"> {{data['quotes'][1].viewsToday}}</a>
+                                </button>
+                                <button class="btn">
+                                    <a class="btn btn-default glyphicon glyphicon glyphicon-eye-open"> {{data['quotes'][1].totalViews}}</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -52,6 +65,20 @@
                         <div class="caption">
                             <p>{{ data['blogs'][1].description }}</p>
                             <p><a ng-href="{{ data['videos'][1]['url'] }}" class="btn btn-primary center-block" role="button">Read Blog</a></p>
+                        </div>
+
+                        <div id='toolbar'>
+                            <div class='wrapper text-center'>
+
+                                <div class="btn-group">
+                                    <button class="btn">
+                                        <a class="btn btn-default glyphicon glyphicon-thumbs-up"> {{data['blogs'][1].viewsToday}}</a>
+                                    </button>
+                                    <button class="btn">
+                                        <a class="btn btn-default glyphicon glyphicon glyphicon-eye-open"> {{data['blogs'][1].totalViews}}</a>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -76,6 +103,22 @@
                         <iframe ng-src="{{ data['videos'][1].url }}" frameborder="0" allowfullscreen></iframe>
                     </div>
 
+                    <br/>
+
+                    <div id='toolbar'>
+                        <div class='wrapper text-center'>
+
+                            <div class="btn-group">
+                                <button class="btn">
+                                    <a class="btn btn-default glyphicon glyphicon-thumbs-up"> {{data['videos'][1].viewsToday}}</a>
+                                </button>
+                                <button class="btn">
+                                    <a class="btn btn-default glyphicon glyphicon glyphicon-eye-open"> {{data['videos'][1].totalViews}}</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -87,9 +130,7 @@
 
 <div >
 
-
     <div class="row">
-
         <div class="col-xs-12 col-md-4">
 
             <div class="panel panel-primary">
@@ -103,6 +144,21 @@
                         </p>
                         <footer>{{ data['quotes'][0].author }}</footer>
                     </blockquote>
+
+                    <div id='toolbar'>
+                        <div class='wrapper text-center'>
+
+                            <div class="btn-group">
+                                <button class="btn">
+                                    <a class="btn btn-default glyphicon glyphicon-thumbs-up"> {{data['quotes'][0].viewsToday}}</a>
+                                </button>
+                                <button class="btn">
+                                    <a class="btn btn-default glyphicon glyphicon glyphicon-eye-open"> {{data['quotes'][0].totalViews}}</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -122,6 +178,19 @@
                             <p><a ng-href="{{ data['videos'][0]['url'] }}" class="btn btn-primary center-block" role="button">Read Blog</a></p>
                         </div>
 
+                        <div id='toolbar'>
+                            <div class='wrapper text-center'>
+
+                                <div class="btn-group">
+                                    <button class="btn">
+                                        <a class="btn btn-default glyphicon glyphicon-thumbs-up"> {{data['blogs'][0].viewsToday}}</a>
+                                    </button>
+                                    <button class="btn">
+                                        <a class="btn btn-default glyphicon glyphicon glyphicon-eye-open"> {{data['blogs'][0].totalViews}}</a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -140,6 +209,21 @@
 
                     <div class="embed-responsive embed-responsive-4by3">
                         <iframe ng-src="{{ data['videos'][0].url }}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <br/>
+
+                    <div id='toolbar'>
+                        <div class='wrapper text-center'>
+
+                            <div class="btn-group">
+                                <button class="btn">
+                                    <a class="btn btn-default glyphicon glyphicon-thumbs-up"> {{data['videos'][0].viewsToday}}</a>
+                                </button>
+                                <button class="btn">
+                                    <a class="btn btn-default glyphicon glyphicon glyphicon-eye-open"> {{data['videos'][0].totalViews}}</a>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

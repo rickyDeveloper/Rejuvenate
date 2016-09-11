@@ -233,24 +233,35 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
         });*/
 
         SharedDataService['blogs'] = [
+
             {
                 imageSrc: 'https://cdn-images-1.medium.com/max/800/1*rsnkdN9SNpMPOJ3bMUu0qA.jpeg',
                 url: 'https://readthink.com/12-mindfulness-hacks-that-will-kill-your-stress-2bcda9376bb6#.ge3hx8ffe',
-                description:'12 Mindfulness Hacks That Will Kill Your Stress'
+                description:'12 Mindfulness Hacks That Will Kill Your Stress',
+                viewsToday: 7036,
+                totalViews: 6145
+
+
             },
             {
-                imageSrc: 'https://cdn-images-1.medium.com/max/800/1*rsnkdN9SNpMPOJ3bMUu0qA.jpeg',
-                url: 'https://readthink.com/12-mindfulness-hacks-that-will-kill-your-stress-2bcda9376bb6#.ge3hx8ffe',
-                description:'12 Mindfulness Hacks That Will Kill Your Stress'
+                imageSrc: 'https://cdn-images-1.medium.com/max/600/1*NQyvR5CxWGxK-spLHHUK9w.jpeg',
+                url: 'https://byrslf.co/how-30-days-of-yoga-prevents-depression-inspires-progression-80988068ef94#.93en2r2bp',
+                description:'How 30 Days of Yoga Prevents Depression, Inspires Progression',
+                viewsToday: 1784,
+                totalViews: 8541
             }
         ]
 
         SharedDataService['videos'] = [
             {
-                url: $sce.trustAsResourceUrl('//www.youtube.com/embed/3I7qR4NO8Ag')
+                url: $sce.trustAsResourceUrl('//www.youtube.com/embed/3I7qR4NO8Ag'),
+                viewsToday: 417,
+                totalViews: 845
             },
             {
-                url: $sce.trustAsResourceUrl('//www.youtube.com/embed/kYX87kkyubk')
+                url: $sce.trustAsResourceUrl('//www.youtube.com/embed/kYX87kkyubk'),
+                viewsToday: 474,
+                totalViews: 5104
             }
          ]
 
@@ -259,13 +270,15 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
             {
                 content:"In times of stress, the best thing we can do for each other is to listen with our ears and our hearts and to be assured that our questions are just as important as our answers."
                 ,
-                author: 'Fred "Mister" Rogers'
-
+                author: 'Fred "Mister" Rogers',
+                viewsToday: 9057,
+                totalViews: 70827
             },
             {
                 content: "Getting better from depression demands a lifelong commitment. I've made that commitment for my life's sake and for the sake of those who love me.",
-                author: "Susan Polis Schutz"
-
+                author: "Susan Polis Schutz",
+                viewsToday: 1293,
+                totalViews: 90423
             }
 
         ]
