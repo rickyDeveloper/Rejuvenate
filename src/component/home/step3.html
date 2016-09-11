@@ -15,6 +15,7 @@
 
     -->
 
+<!--
     <div ng-repeat="reasonSelection in  reasonSelections">
         <input
             type="checkbox"
@@ -24,6 +25,27 @@
             ng-click="toggleReasonSelection(reasonSelection)"
         > {{reasonSelection}}
     </div>
+
+
+-->
+
+  <div ng-repeat="reasonSelection in reasonSelections">
+        <input
+            type="radio"
+            name="reasonSelectionOptions[]"
+            value="{{reasonSelection.id}}"
+            ng-model="vm.user.reasonSelection"
+        > {{reasonSelection.feeling}}
+    </div>
+
+   <!-- <div ng-repeat="reasonSelections in vm.user.reasonSelections">
+        <input
+            type="radio"
+            name="selectedOptions[]"
+            value="{{reasonSelections.id}}"
+            ng-model="vm.user.reasonSelectionswhyOptionSelection"
+        > {{whyOption.feeling}}
+    </div>-->
 
 
 

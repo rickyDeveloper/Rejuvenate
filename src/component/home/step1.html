@@ -4,7 +4,15 @@
 <br/>
 
 <div class="form-group">
-    <div class="radio">
+
+    <div ng-repeat="mood in moods">
+        <div class="radio">
+            <label><input name="radioGroup" type="radio" ng-model="vm.user.mood" value="{{mood.id}}">{{mood.feeling}}</label>
+        </div>
+    </div>
+
+
+    <!--<div class="radio">
         <label><input name="radioGroup" type="radio" ng-model="vm.user.mood.depressed" value="depressed">Depressed</label>
     </div>
 
@@ -12,5 +20,7 @@
     <div class="radio">
         <label><input name="radioGroup" type="radio" ng-model="vm.user.mood.stressed"  value="stressed">Stressed</label>
     </div>
+-->
+
 
 </div>

@@ -12,25 +12,25 @@
            <label><input type="checkbox" ng-model="vm.user.mood.depressed" value="depressed">Depressed</label>
        </div>
    </div>
-
 -->
 
-    <div ng-repeat="whyOption in  vm.user.mood.whyOptions">
+
+    <div ng-repeat="whyOption in vm.user.whyOptions">
         <input
-            type="checkbox"
+            type="radio"
             name="selectedOptions[]"
-            value="{{whyOption}}"
-            ng-checked="selection.indexOf(whyOption) > -1"
-            ng-click="toggleSelection(whyOption)"
-        > {{whyOption}}
+            value="{{whyOption.id}}"
+            ng-model="vm.user.whyOptionSelection"
+            > {{whyOption.feeling}}
     </div>
-
-
 
    <!-- <div class="checkbox">
         <label><input type="checkbox" ng-model="vm.user.mood.depressed" value="depressed">Depressed</label>
     </div>
     <br/>
+
+ ng-checked="selection.indexOf(whyOption.id) > -1"
+            ng-click="toggleSelection(whyOption.id)"
 
     <div class="checkbox">
         <label><input type="checkbox" ng-model="vm.user.mood.stressed"  value="stressed">Stressed</label>

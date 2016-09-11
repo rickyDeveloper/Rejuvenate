@@ -9,7 +9,8 @@
 // our controller for the form
 // =============================================================================
 myApp.controller('HomeController', function($scope, $http, $sce, SharedDataService) {
-/*
+
+    /*
     // we will store all of our form data in this object
     $scope.formData = {};
 
@@ -19,22 +20,54 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
     };*/
 
 
+    $scope.init = function () {
+     /*   $http({
+            method: 'GET',
+            url: '/nodes/root'
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            $scope.moods = response
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });*/
+
+
+        $scope.moods = [
+
+            {
+                "id":1,
+            "feeling" : 'DEPRESSED',
+        "isLeaf":false
+
+            },
+
+            {
+                "id":2,
+                "feeling" : 'STRESSED',
+                "isLeaf":false
+
+            }
+
+        ]
+
+    }
+
+    $scope.init();
+
     var vm = this;
 
     vm.step1Data = []
 
     vm.user = {}
-    vm.user.mood = {}
+    vm.user.mood = ''
+    vm.user.whyOptionSelection = ''
+    vm.user.reasonSelection = ''
 
-    vm.user.mood.depressed = ''
-    vm.user.mood.stressed = ''
-    vm.user.mood.other = ''
 
-    $scope.stressed = ['Angry', 'Sad'],
-    $scope.depressed = ['Relation Ship', 'No Encouragement', 'No Reason'],
-    $scope.other = ['No aspiration', 'Low on confidence']
-
-    vm.user.mood.whyOptions = []
+    vm.user.whyOptions = []
+    //vm.user.reasonSelections = []
 
     // selected why
     $scope.selection = [];
@@ -53,48 +86,113 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
         },
         {
             step: 2,
-            name: "Why?",
+            name: "Reason",
             template: "src/component/home/step2.html"
         },
         {
             step: 3,
-            name: "Reason",
+            name: "Due to",
             template: "src/component/home/step3.html"
         }
     ];
+
     vm.user = {};
 
     //Functions
     vm.gotoStep = function(newStep) {
         if(vm.currentStep == 1) {
-            vm.user.mood.whyOptions = []
+            vm.user.whyOptions = []
             $scope.selection = []
-            if(vm.user.mood.depressed) {
-                for(var item in $scope.depressed) {
-                    vm.user.mood.whyOptions.push($scope.depressed[item]);
+
+           /* $http({
+                method: 'GET',
+                url: '/nodes/children/'+vm.user.mood
+            }).then(function successCallback(response) {
+                // this callback will be called asynchronously
+                // when the response is available
+                $scope.moods = response
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });*/
+
+
+            /*$scope.stressed = ['Angry', 'Sad'],
+                $scope.depressed = ['Relation Ship', 'No Encouragement', 'No Reason'],
+                $scope.other = ['No aspiration', 'Low on confidence']
+
+            */
+
+            vm.user.whyOptions = [
+                {
+                    "id":3,
+                    "feeling" : 'Relation Ship',
+                    "isLeaf":false
+
+                },
+
+                {
+                    "id":4,
+                    "feeling" : 'No Encouragement',
+                    "isLeaf":false
+
+                },
+
+                {
+                    "id":5,
+                    "feeling" : 'No Reason',
+                    "isLeaf":false
+
                 }
-            }
-
-
-            if(vm.user.mood.stressed) {
-                for(var item in $scope.stressed) {
-                    vm.user.mood.whyOptions.push($scope.stressed[item]);
-                }
-            }
-
-
-            if(vm.user.mood.other) {
-               // vm.user.mood.whyOptions.push( $scope.other)
-                for(var item in $scope.other) {
-                    vm.user.mood.whyOptions.push($scope.other[item]);
-                }
-            }
+            ]
 
         } else if (vm.currentStep == 2) {
             // Reason selection
-            $scope.reasonSelections = []
+            //$scope.reasonSelections = []
+            //$scope.reasonSelections = []
             $scope.reasonPersons = []
+/*
 
+            $http({
+             method: 'GET',
+             url: '/nodes/children/'+vm.user.whyOptionSelection
+             }).then(function successCallback(response) {
+             // this callback will be called asynchronously
+             // when the response is available
+             $scope.moods = response
+             }, function errorCallback(response) {
+             // called asynchronously if an error occurs
+             // or server returns response with an error status.
+             });
+*/
+
+
+
+            $scope.reasonSelections = [
+                {
+                    "id":6,
+                    "feeling" : 'Spouse',
+                    "isLeaf":false
+
+                },
+
+                {
+                    "id":7,
+                    "feeling" : 'Sibling',
+                    "isLeaf":false
+
+                },
+
+                {
+                    "id":8,
+                    "feeling" : 'Manager/Colleague',
+                    "isLeaf":false
+
+                }
+            ]
+
+
+            /*
             for(var item in $scope.selection) {
                 if($scope.selection[item] == 'Relation Ship') {
                     $scope.reasonSelections.push('Spouse');
@@ -105,7 +203,7 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
                     $scope.reasonSelections.push('Wife');
                     $scope.reasonSelections.push('Family');
                 }
-            }
+            }*/
         }
 
 
@@ -122,14 +220,17 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
 
     vm.save = function() {
 
-        /*$http.get("http://www.google.com")
-            .then(function(response) {
-                //First function handles success
-                $scope.content = response.data;
-            }, function(response) {
-                //Second function handles error
-                $scope.content = "Something went wrong";
-            });*/
+        /*$http({
+            method: 'GET',
+            url: '/content/' + vm.user.reasonSelection
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            $scope.moods = response
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });*/
 
         SharedDataService['blogs'] = [
             {
@@ -207,3 +308,27 @@ myApp.controller('HomeController', function($scope, $http, $sce, SharedDataServi
 
 
 });
+
+
+
+
+/*if(vm.user.mood.depressed) {
+ for(var item in $scope.depressed) {
+ vm.user.mood.whyOptions.push($scope.depressed[item]);
+ }
+ }
+
+
+ if(vm.user.mood.stressed) {
+ for(var item in $scope.stressed) {
+ vm.user.mood.whyOptions.push($scope.stressed[item]);
+ }
+ }
+
+
+ if(vm.user.mood.other) {
+ // vm.user.mood.whyOptions.push( $scope.other)
+ for(var item in $scope.other) {
+ vm.user.mood.whyOptions.push($scope.other[item]);
+ }
+ }*/

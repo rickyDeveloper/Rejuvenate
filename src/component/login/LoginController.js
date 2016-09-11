@@ -7,10 +7,10 @@ myApp.controller('LoginController',  function($scope) {
         //this.correctUserName='sequoia'
 
         this.login = function() {
-             /*if($scope.username != 'sequoia') {
+            /* if($scope.username != 'sequoia') {
                  $scope.error = "Invalid user credentials";
              } else {*/
-                     location.href = '#/home';
+                 location.href = '#/home';
              //}
         }
 

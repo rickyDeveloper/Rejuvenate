@@ -9,5 +9,5 @@ myApp.controller('ResultsController', function($scope,  SharedDataService) {
     $scope.data = SharedDataService
 
 
-    alert($scope.data['videos'][0]['url']);
+    //alert($scope.data['videos'][0]['url']);
 });
