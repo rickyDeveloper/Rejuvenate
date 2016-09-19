@@ -1,4 +1,4 @@
-# [REJUVENATE App]
+# REJUVENATE App
 
 This app is an effort to help stressed and depressed people.
 
