@@ -2,15 +2,58 @@
 
 <br/>
 <br/>
-
-<div class="form-group">
-
+<!--
+<div class="form-group">-->
+<!--
     <div ng-repeat="mood in moods">
         <div class="radio">
             <label><input name="radioGroup" type="radio" ng-model="vm.user.mood" value="{{mood.id}}">{{mood.feeling | uppercase}}</label>
         </div>
-    </div>
+    </div>-->
 
+    <div ng-controller="HomeController as vm">
+
+
+        <b>Doc Type </b><select ng-change="onCategoryChange(selectedFileType)" ng-model="selectedFileType" ng-options="fileType for fileType in vm.fileTypes">
+
+
+        </select>
+
+
+        <br/>
+
+        <br/>
+
+        <!--<input type = "file" file-model = "file"  enctype="multipart/form-data"/> -->
+
+
+        <input type="file" file-model = "myFile" />
+
+
+<!--
+        <form method="POST" enctype="multipart/form-data" action="http://localhost:8080/files/resume">
+            <table>
+                <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+                <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+            </table>
+        </form>-->
+
+        <!--<div
+            class="btn btn-primary btn-upload"
+            upload-button
+            url="http://localhost:8080/files/resume"
+            on-success="onSuccess(response)"
+        >Upload</div>-->
+
+
+        <br/>
+
+        <br/>
+
+        <button ng-click = "vm.uploadFile()">upload </button>
+
+        <label>{{vm.successMsg}}</label>
+    </div>
 
     <!--<div class="radio">
         <label><input name="radioGroup" type="radio" ng-model="vm.user.mood.depressed" value="depressed">Depressed</label>
@@ -20,7 +63,7 @@
     <div class="radio">
         <label><input name="radioGroup" type="radio" ng-model="vm.user.mood.stressed"  value="stressed">Stressed</label>
     </div>
--->
 
 
-</div>
+
+</div>-->

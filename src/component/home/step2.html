@@ -14,15 +14,16 @@
    </div>
 -->
 
+    <label><h6>{{vm.documentTags}}</h6></label>
 
-    <div ng-repeat="whyOption in vm.user.whyOptions">
+   <!-- <div ng-repeat="whyOption in vm.user.whyOptions">
         <input
             type="radio"
             name="selectedOptions[]"
             value="{{whyOption.id}}"
             ng-model="vm.user.whyOptionSelection"
-            > {{whyOption.feeling| uppercase}}
-    </div>
+            > {{vm.documentTags}}
+    </div>-->
 
    <!-- <div class="checkbox">
         <label><input type="checkbox" ng-model="vm.user.mood.depressed" value="depressed">Depressed</label>

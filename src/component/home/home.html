@@ -27,7 +27,7 @@
         <div class="col-md-12">
 
 
-            <h3 class="text-center"><mark class="bg-success">How are you feeling today ?</mark></h3>
+            <!--<h3 class="text-center"><mark class="bg-success"></mark></h3>-->
             <div id="wizard-container" ng-controller="HomeController as vm">
 
                 <div id="wizard-step-container">
@@ -49,7 +49,7 @@
                   <button ng-disabled="vm.currentStep <= 1" class="btn btn-default" name="previous" type="button" ng-click="vm.gotoStep(vm.currentStep - 1)"><i class="fa fa-arrow-left"></i> Previous step</button>
                   <button ng-disabled="vm.currentStep >= vm.steps.length" class="btn btn-primary" name="next" type="button" ng-click="vm.gotoStep(vm.currentStep + 1)">Next step <i class="fa fa-arrow-right"></i></button>
                 </span>
-                        <button ng-disabled="vm.currentStep != vm.steps.length" class="btn btn-success" name="next" type="button" ng-click="vm.save()"> <i class="fa fa-floppy-o"></i> Search</button>
+                        <button ng-disabled="vm.currentStep != vm.steps.length" class="btn btn-success" name="next" type="button" ng-click="vm.save()"> <i class="fa fa-floppy-o"></i>Match</button>
                     </div>
                 </div>
             </div>
