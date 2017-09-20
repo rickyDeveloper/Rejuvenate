@@ -67,8 +67,8 @@ myApp.controller('HomeController', function($scope, $http, $sce, $localStorage,f
 
    // vm.documentTags = {};
 
-    vm.resumeId = "59c17b1c77c8e33c1e766dc7";
-    vm.jdId = "59c00c6930528df66672e73f";
+    vm.resumeId = "59c1aae677c81a5403399ee1";
+    vm.jdId = "59c1a21177c81a5403399ed5";
 
 
     //Functions
@@ -79,9 +79,9 @@ myApp.controller('HomeController', function($scope, $http, $sce, $localStorage,f
 
             var link = ""
             if($localStorage.fileType == "Resume") {
-                link = 'http://localhost:8080/files/resume/59c17b1c77c8e33c1e766dc7'
+                link = 'http://localhost:8080/files/resume/59c1aae677c81a5403399ee1'
             } else {
-                link = 'http://localhost:8080/files/jd/59c00c6930528df66672e73f'
+                link = 'http://localhost:8080/files/jd/59c1a21177c81a5403399ed5'
             }
 
             $http({
@@ -107,10 +107,10 @@ myApp.controller('HomeController', function($scope, $http, $sce, $localStorage,f
             var link = ""
             if($localStorage.fileType == "Resume") {
                 vm.selectedFileType = $localStorage.fileType;
-             //   link = 'http://localhost:8080/files/resume/59c17b1c77c8e33c1e766dc7'
+             //   link = 'http://localhost:8080/files/resume/59c1aae677c81a5403399ee1'
             } else {
                 vm.selectedFileType = $localStorage.fileType;
-              //  link = 'http://localhost:8080/files/jd/59c00c6930528df66672e73f'
+              //  link = 'http://localhost:8080/files/jd/59c1a21177c81a5403399ed5'
             }
 
            /* $http({
@@ -155,9 +155,9 @@ myApp.controller('HomeController', function($scope, $http, $sce, $localStorage,f
 
         var link = ""
         if($localStorage.fileType == "Resume") {
-            link = 'http://localhost:8080/files/resume/59c17b1c77c8e33c1e766dc7'
+            link = 'http://localhost:8080/files/resume/59c1aae677c81a5403399ee1'
         } else {
-            link = 'http://localhost:8080/files/jd/59c00c6930528df66672e73f'
+            link = 'http://localhost:8080/files/jd/59c1a21177c81a5403399ed5'
         }
 
        $http.get(link)
@@ -239,9 +239,9 @@ myApp.controller('HomeController', function($scope, $http, $sce, $localStorage,f
        // SharedDataService = $scope.progress
 
         if($localStorage.fileType == "Resume") {
-            link = 'http://localhost:8080/files/resume/59c17b1c77c8e33c1e766dc7/rank'
+            link = 'http://localhost:8080/files/resume/59c1aae677c81a5403399ee1/rank'
         } else {
-            link = 'http://localhost:8080/files/jd/59c00c6930528df66672e73f/rank'
+            link = 'http://localhost:8080/files/jd/59c1a21177c81a5403399ed5/rank'
         }
 
         $http({
